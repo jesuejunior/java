@@ -1,0 +1,18 @@
+1) O hotel Pantanal precisa de um programa que calcule os gastos de um cliente. A tabela 
+de preços do hotel é a seguinte:
+Apartamentos:
+Solteiro (S) R$ 30,00
+Casal (C) R$ 50,00
+Suíte (T) R$ 75,00
+Telefone: R$ 1,35
+Televisão: R$ 4,50
+Escreva um algoritmo para ler o número de dias de hospedagem no hotel, o tipo de 
+apartamento (S, C, T), o uso de telefone (S para Sim e N para Não) e o uso da televisão (S, 
+N, idem uso de telefone). Ao final, emitir um relatório na tela, semelhante ao mostrado:
+*** Hotel Pantanal ***
+Número de dias de hospedagem: 7
+Tipo de apartamento: Suíte
+Diárias ..........................R$ 525,00
+Telefone .......................R$      4,05
+Televisão ......................R$     4,50
+TOTAL ......................R$ 533,55
