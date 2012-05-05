@@ -5,13 +5,14 @@ import java.text.DateFormat;
 import java.util.List;
 
 import caelum.jdbc.dao.ContatoDAO;
+import caelum.jdbc.exception.DAOException;
 import caelum.jdbc.modelo.Contato;
 
 public class TesteLista {
 
 	public static void main(String[] args) {
 
-		String nome = "Fernanda";
+		String nome = "S";
 		
 		ContatoDAO dao = new ContatoDAO();
 		
@@ -26,7 +27,7 @@ public class TesteLista {
 				System.out.println("Data de Nascimento: " + DateFormat.getDateInstance().format(contato.getDataNascimento().getTime()) + "\n");
 			}
 		} catch (SQLException e) {
-			throw new RuntimeException(e);
+			throw new DAOException(e);
 		}
 		
 

@@ -77,7 +77,7 @@ public List<Contato> getContatoNome(String nome) throws SQLException {
 	try{
 		
 		List<Contato> contatos = new ArrayList<Contato>();
-		PreparedStatement stmt = this.connection.prepareStatement("select * from contatos where nome  like '" + nome  + "'");
+		PreparedStatement stmt = this.connection.prepareStatement("select * from contatos where nome  like '" + nome  + "%'");
 		ResultSet rs = stmt.executeQuery();
 		
 		
@@ -100,6 +100,30 @@ public List<Contato> getContatoNome(String nome) throws SQLException {
 		return contatos;
 	} catch (SQLException e) {
 		throw new DAOException(e);
+	}
+}
+
+public Contato pesquisaPorId(Integer id){
+	try{
+		PreparedStatement stmt = this.connection.prepareStatement("select * from contatos where id = " + id);
+		ResultSet rs = stmt.executeQuery();
+		
+		rs.next();
+		Contato contato = new Contato();
+		contato.setNome(rs.getString("nome"));
+		contato.setEmail(rs.getString("email"));
+		contato.setEndereco(rs.getString("endereco"));
+		
+		Calendar data = Calendar.getInstance();
+		data.setTime(rs.getDate("dataNascimento"));
+		contato.setDataNascimento(data);
+		
+		rs.close();
+		stmt.close();
+	
+		return contato;
+	}catch (SQLException sql){
+		throw new DAOException(sql);
 	}
 }
 
