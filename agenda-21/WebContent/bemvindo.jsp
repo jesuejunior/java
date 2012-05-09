@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Bem Vindo ao Agenda 21!</title>
 </head>
-<body>
+<body><center>
 <%String msg = "Bem Vindo!";%> 
 <% out.println(msg);%> <br />
 <% String desenv = "Desenvolvido por Jesué Junior"; %>
@@ -14,5 +14,6 @@
 
 <% System.out.println("Executado!!!"); %>
 <%-- Teste de comentario --%>
+</center>
 </body>
 </html>

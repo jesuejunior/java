@@ -1,6 +1,6 @@
 <%@page import="java.util.List"%>
 <%@page import="caelum.jdbc.modelo.Contato"%>
-<%@page import="caelum.jdbc.dao.ContatoDAO"%>
+<%@page import="caelum.jdbc.dao.ContatoDAO, java.text.DateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -21,7 +21,7 @@ for(Contato contato : contatos){
 			<td><%=contato.getNome() %></td>
 			<td><%=contato.getEmail() %></td>
 			<td> <%=contato.getEndereco() %></td>
-			<td><%=contato.getDataNascimento().getTime() %></td>
+			<td><%=DateFormat.getDateInstance().format(contato.getDataNascimento().getTime()) %></td>
 		</tr>	
 		<%				
 }
