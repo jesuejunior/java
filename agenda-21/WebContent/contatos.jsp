@@ -4,7 +4,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@taglib uri="http://displaytag.sf.net" prefix="display" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,7 +14,7 @@
 <title>Contatos</title>
 </head>
 <body>
-	<c:import url="cabecalho.jsp"></c:import>
+	<!--<c:import url="cabecalho.jsp"></c:import> -->
 	<!--  Inicializa o DAO -->
 	<jsp:useBean id="dao" class="caelum.jdbc.dao.ContatoDAO" />
 	<jsp:useBean id="contato" class="caelum.jdbc.modelo.Contato" />
@@ -28,20 +27,22 @@
 		</tr>
 		<c:forEach items="${dao.lista}" var="contato">
 			<tr>
-				<td>${contato.nome}</td>
+				<td> ${contato.nome}</td>
 				<td><c:choose>
 						<c:when test="${not empty contato.email}">
 							<a href="mailto:${contato.email}">${contato.email}</a></td>
-				</c:when>
+						</c:when>
 				<c:otherwise>
 					Email não cadastrado.
 						</c:otherwise>
 				</c:choose>
 				<td>${contato.endereco}</td>
 				<td><fmt:formatDate value="${contato.dataNascimento.time}"	pattern="dd/MM/yyyy" /></td>
+				<td><form action="mvc?id=${contato.id}" method="POST">  <input type="hidden" name="action" value="RemoverContatoAction" /> 
+					<center><input type="submit" class="btn btn-danger" value="Remover" /></center></td>
+					</form>
 			</tr>
 		</c:forEach>
 	</table>
-	<c:import url="rodape.jsp"></c:import>
 </body>
 </html>
