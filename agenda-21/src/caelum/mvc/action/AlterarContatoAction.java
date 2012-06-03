@@ -36,7 +36,7 @@ public class AlterarContatoAction implements IAction{
 		ContatoDAO dao = new ContatoDAO();
 		dao.altera(contato);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/contatos.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
 		rd.forward(request, response);
 		System.out.println("Alterando contato..." + contato.getNome());
 	}

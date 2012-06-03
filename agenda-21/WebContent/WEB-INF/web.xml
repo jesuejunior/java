@@ -20,7 +20,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>controllerServlet</servlet-name>
-		<url-pattern>/mvc</url-pattern>
+		<url-pattern>/mvc.6</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
